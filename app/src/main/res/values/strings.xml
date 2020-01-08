@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Programmers</string>
+
+    <string name="title01">화장품1</string>
+    <string name="title02">화장품2</string>
+    <string name="title03">화장품3</string>
+    <string name="title04">화장품4</string>
+    <string name="title05">화장품5</string>
+    <string name="title06">화장품6</string>
+    <string name="title07">화장품7</string>
+    <string name="title08">화장품8</string>
+    <string name="title09">화장품9</string>
+    <string name="title10">화장품10</string>
+
+    <string name="price01">100원</string>
+    <string name="price02">200원</string>
+    <string name="price03">300원</string>
+    <string name="price04">400원</string>
+    <string name="price05">500원</string>
+    <string name="price06">600원</string>
+    <string name="price07">700원</string>
+    <string name="price08">800원</string>
+    <string name="price09">900원</string>
+    <string name="price10">1000원</string>
+
+
+</resources>
