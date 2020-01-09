@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Programmers</string>
 
+    <!-- 화장품 이름 -->
     <string name="title01">화장품1</string>
     <string name="title02">화장품2</string>
     <string name="title03">화장품3</string>
@@ -12,6 +13,7 @@
     <string name="title09">화장품9</string>
     <string name="title10">화장품10</string>
 
+    <!-- 화장품 가격 -->
     <string name="price01">100원</string>
     <string name="price02">200원</string>
     <string name="price03">300원</string>
@@ -22,6 +24,13 @@
     <string name="price08">800원</string>
     <string name="price09">900원</string>
     <string name="price10">1000원</string>
+
+    <!-- 피부 타입별 -->
+    <string name="all_types">모든 피부 타입</string>
+    <string name="dry_types">건성 피부 타입</string>
+    <string name="oily_types">지성 피부 타입</string>
+    <string name="trouble_types">트러블 피부 타입</string>
+    <string name="complicated_types">복합성 피부 타입</string>
 
 
 </resources>

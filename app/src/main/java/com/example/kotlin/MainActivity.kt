@@ -1,14 +1,21 @@
 package com.example.kotlin
 
+import `in`.srain.cube.views.GridViewWithHeaderAndFooter
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin.data.YoutubeItem
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.gridLayout
+import org.jetbrains.anko.spinner
 
 class MainActivity : AppCompatActivity() {
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,18 +78,65 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//        spinner().onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
 //
-//        recyclerView.adapter = RecyclerAdapter(list, this)
+//            }
+//
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+
+//                when (spinner().getItemAtPosition(position)) {
+//                    "모든 피부 타입" -> {
+//                        AllSkinType()
+//                    }
+////                    "건성 피부 타입" -> {
+////                        DrySkinType()
+////                    }
+////                    "지성 피부 타입" -> {
+////                        OilySkinType()
+////                    }
+////                    "트러블 피부 타입" -> {
+////                        TroubleSkinType()
+////                    }
+////                    "복합성 피부 타입" -> {
+////                        ComplicatedSkinType()
+////                    }
+//
+//                }
+//            }
+//        }
+
 
         val adapter = RecyclerAdapter(list, this)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
         (recyclerView.adapter as RecyclerAdapter).notifyDataSetChanged()
-
-
+        //리사이클러뷰 구분선
         recyclerView.addItemDecoration(
-            DividerItemDecoration(this, DividerItemDecoration.VERTICAL) //리사이클러뷰 구분선
+            DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
+
+
+        recyclerView.layoutManager = GridLayoutManager(this, 2).also {
+            it.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    if (position == 0)
+                        return 2
+                    else
+                        return 1
+                }
+            }
+        }
+
+
+
+
+
+
     }
 }
