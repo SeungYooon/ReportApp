@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.kotlin.data.YoutubeItem
 
 
-class RecyclerAdapter(val list: ArrayList<YoutubeItem>, val context: Context) :
+class RecyclerAdapter(var list: ArrayList<YoutubeItem>, val context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val TYPE_ITEM: Int = 1

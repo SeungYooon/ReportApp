@@ -2,26 +2,43 @@ package com.example.kotlin
 
 import `in`.srain.cube.views.GridViewWithHeaderAndFooter
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin.data.YoutubeItem
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.header.*
 import org.jetbrains.anko.gridLayout
+import org.jetbrains.anko.sdk25.coroutines.onQueryTextListener
+import org.jetbrains.anko.searchView
 import org.jetbrains.anko.spinner
 
 class MainActivity : AppCompatActivity() {
 
 
+    private lateinit var adapter: RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+//
+//        val list = ArrayList<YoutubeItem>()
+//        adapter = RecyclerAdapter(list, this)
+//        recyclerView.adapter = adapter
+//        recyclerView.setHasFixedSize(true)
+//        recyclerView.addItemDecoration(
+//            DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+//        )
 
         val list = arrayListOf<YoutubeItem>(
             YoutubeItem(
@@ -78,40 +95,6 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-//        spinner().onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onNothingSelected(p0: AdapterView<*>?) {
-//
-//            }
-//
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-
-//                when (spinner().getItemAtPosition(position)) {
-//                    "모든 피부 타입" -> {
-//                        AllSkinType()
-//                    }
-////                    "건성 피부 타입" -> {
-////                        DrySkinType()
-////                    }
-////                    "지성 피부 타입" -> {
-////                        OilySkinType()
-////                    }
-////                    "트러블 피부 타입" -> {
-////                        TroubleSkinType()
-////                    }
-////                    "복합성 피부 타입" -> {
-////                        ComplicatedSkinType()
-////                    }
-//
-//                }
-//            }
-//        }
-
-
         val adapter = RecyclerAdapter(list, this)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
@@ -134,9 +117,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-
-
     }
 }
+

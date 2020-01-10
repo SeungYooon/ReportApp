@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner_entries">
+    <string-array name="spinner_types">
         <item >모든 피부 타입</item>
         <item >건성 피부 타입</item>
         <item >지성 피부 타입</item>
         <item >트러블 피부 타입</item>
         <item >복합성 피부 타입</item>
 
+    </string-array>
+
+    <string-array name="spinner_entries">
+        <item >Android Dev Summit</item>
+        <item >Android I/O</item>
     </string-array>
 </resources>
