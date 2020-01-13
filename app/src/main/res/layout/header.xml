@@ -23,13 +23,13 @@
         android:queryHint="검색" />
 
 
-    <Spinner
+    <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/types_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="250dp"
         android:layout_marginTop="70dp"
         android:background="@android:color/white"
-        android:entries="@array/spinner_types" />
+        android:entries="@array/spinner_entries" />
 
 </FrameLayout>

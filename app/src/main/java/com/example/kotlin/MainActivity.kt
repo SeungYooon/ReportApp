@@ -1,28 +1,34 @@
 package com.example.kotlin
 
 import `in`.srain.cube.views.GridViewWithHeaderAndFooter
+import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
+import android.widget.ScrollView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin.data.YoutubeItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header.*
 import org.jetbrains.anko.gridLayout
+import org.jetbrains.anko.scrollView
 import org.jetbrains.anko.sdk25.coroutines.onQueryTextListener
 import org.jetbrains.anko.searchView
 import org.jetbrains.anko.spinner
+import org.jetbrains.anko.support.v4.nestedScrollView
 
 class MainActivity : AppCompatActivity() {
-
 
     private lateinit var adapter: RecyclerAdapter
 
@@ -31,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-//
 //        val list = ArrayList<YoutubeItem>()
 //        adapter = RecyclerAdapter(list, this)
 //        recyclerView.adapter = adapter
@@ -103,8 +108,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
-
-
         recyclerView.layoutManager = GridLayoutManager(this, 2).also {
             it.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
@@ -114,9 +117,45 @@ class MainActivity : AppCompatActivity() {
                         return 1
                 }
             }
+
         }
-
-
     }
+
 }
+
+
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//            }
+//
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//
+//                if (dy <= 0) return
+//
+//                totalItemCount = recyclerView.layoutManager!!.itemCount
+//
+//                if (recyclerView.layoutManager is GridLayoutManager) {
+//                    lastVisibleItem =
+//                        (recyclerView.layoutManager as GridLayoutManager).findLastCompletelyVisibleItemPosition()
+//                    Toast.makeText(this@MainActivity, "dd", Toast.LENGTH_SHORT).show()
+//                }
+//
+//            }
+//
+////
+////                val lastVisibleItemPosition =
+////                    (recyclerView.getLayoutManager() as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+////                val itemTotalCount = recyclerView.getAdapter()!!.getItemCount()
+////
+////                if (lastVisibleItemPosition == itemTotalCount) {
+////
+////                    Toast.makeText(this@MainActivity, "dd",Toast.LENGTH_SHORT).show()
+////
+////                }
+////            }
+////        })
+
+
 
